@@ -17,6 +17,10 @@ jobs:
           command: yarn install --frozen-lockfile
 
       - run:
+          name: Realizando verificação de código com o ESLint
+          command: yarn lint
+
+      - run:
           name: Executar testes E2E
           command: yarn e2e
 
