@@ -1,0 +1,32 @@
+version: 2.1
+
+jobs:
+  e2e-tests:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.54.2-noble
+
+    steps:
+      - checkout
+
+      - run:
+          name: Instalar Yarn
+          command: npm install -g yarn
+
+      - run:
+          name: Instalar dependências
+          command: yarn install --frozen-lockfile
+
+      - run:
+          name: Executar testes E2E
+          command: yarn e2e
+
+      - store_artifacts:
+          path: playwright-report
+
+      - store_artifacts:
+          path: test-results
+
+workflows:
+  execucao-manual:
+    jobs:
+      - e2e-tests
