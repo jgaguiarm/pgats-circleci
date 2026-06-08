@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   e2e-tests:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.54.2-noble
+      - image: mcr.microsoft.com/playwright:v1.60.0-noble
 
     steps:
       - checkout
